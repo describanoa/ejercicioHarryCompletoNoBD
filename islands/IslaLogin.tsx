@@ -39,7 +39,6 @@ const IslaLogin: FunctionalComponent = () => {
                 <br />
                 <button type="submit" onClick={funcionLogin}>Login</button>
             </form>
-            <a href="/register">Crear cuenta</a>
         </div>
     );
 }

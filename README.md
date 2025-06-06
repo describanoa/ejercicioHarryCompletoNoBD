@@ -1,4 +1,4 @@
-**Deno Deploy:** `short-badger-49.deno.dev`
+**Deno Deploy:** `ejercicioharrycompletonobd.deno.dev`
 
 **Examen Práctico – Harry Potter Favorites App (versión actualizada)**
 
@@ -10,21 +10,21 @@ Crea una aplicación web con Deno Fresh que implemente las siguientes funcionali
 
 1. **Página principal (`/`)**
 
-   * Muestra un formulario para **registro** y otro para **login** (email + contraseña).
+   * Muestra un formulario para **login** (username + contraseña).
    * Al hacer login, se valida que la contraseña sea `1234`.
    * Se genera/almacena una **cookie de sesión** con el nombre de usuario (`username`) que luego será leída por el middleware.
 
 2. **Middleware (`_middleware.ts`)**
 
    * Detecta la cookie de sesión (`username`) en cada petición.
-   * Si no existe o es inválida, redirige a `/` (login).
+   * Si no existe o es inválida, redirige a `/login`.
    * Si es válida, inyecta en el contexto (`ctx.state`) el `username` y permite continuar.
 
 ---
 
 ## 2. Layout Global
 
-* Crea un archivo `_layout.tsx` que incluya un **header** y un **footer** comunes en todas las páginas (logo “HP Favorites”, enlaces a “Personajes”, “Favoritos” y “Mi Perfil”).
+* Crea un archivo `_layout.tsx` que incluya un **header** y un **footer** comunes en todas las páginas (enlaces a “Characters”, “Search”, “Favorites” y “Perfil”).
 * Dentro de `body`, renderiza la parte específica de cada ruta.
 
 ---
@@ -82,7 +82,7 @@ Como extra, puedes crear una ruta:
 * **`/profile`**
 
   * Muestra información básica del usuario (nombre de usuario obtenido de la cookie `username`).
-  * Permite “cerrar sesión” (borrar cookie) y redirigir a `/`.
+  * Permite “cerrar sesión” (borrar cookies) y redirigir a `/login`.
 
 ---
 

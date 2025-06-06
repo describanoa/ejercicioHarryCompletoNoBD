@@ -17,12 +17,10 @@ import * as $api_nuevofavorito from "./routes/api/nuevofavorito.ts";
 import * as $api_quitarfavorito from "./routes/api/quitarfavorito.ts";
 import * as $index from "./routes/index.tsx";
 import * as $login from "./routes/login.tsx";
-import * as $register from "./routes/register.tsx";
 import * as $IslaCharacter from "./islands/IslaCharacter.tsx";
 import * as $IslaFavoritesCharacters from "./islands/IslaFavoritesCharacters.tsx";
 import * as $IslaLogin from "./islands/IslaLogin.tsx";
 import * as $IslaProfile from "./islands/IslaProfile.tsx";
-import * as $islaRegister from "./islands/islaRegister.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -42,14 +40,12 @@ const manifest = {
     "./routes/api/quitarfavorito.ts": $api_quitarfavorito,
     "./routes/index.tsx": $index,
     "./routes/login.tsx": $login,
-    "./routes/register.tsx": $register,
   },
   islands: {
     "./islands/IslaCharacter.tsx": $IslaCharacter,
     "./islands/IslaFavoritesCharacters.tsx": $IslaFavoritesCharacters,
     "./islands/IslaLogin.tsx": $IslaLogin,
     "./islands/IslaProfile.tsx": $IslaProfile,
-    "./islands/islaRegister.tsx": $islaRegister,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
