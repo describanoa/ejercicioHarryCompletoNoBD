@@ -6,7 +6,7 @@ export async function handler(req: Request) {
   const { username, password } = await req.json();
 
   // Validar la contraseña (en este caso, debe ser "1234")
-  if (password === "1234") {
+  if (password === "1234" && username) {
     const headers = new Headers();
     headers.append(
       "Set-Cookie",

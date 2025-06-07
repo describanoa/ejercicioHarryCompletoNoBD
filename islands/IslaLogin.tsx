@@ -10,21 +10,27 @@ const IslaLogin: FunctionalComponent = () => {
     const funcionLogin = async (e: Event) => {
         e.preventDefault();
 
-        const response = await fetch("/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                username: usernameSignal.value,
-                password: passwordSignal.value,
-            }),
-        });
+        if(usernameSignal.value.trim() === "" || passwordSignal.value.trim() === "") {
+            alert("Por favor, completa todos los campos.");
+            return;
+        }
+        else {
+            const response = await fetch("/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: usernameSignal.value,
+                    password: passwordSignal.value,
+                }),
+            });
 
-        if (response.ok) {
-            globalThis.location.href = "/characters";
-        } else {
-            usernameSignal.value = "";
-            passwordSignal.value = "";
-            alert("Usuario o contraseña incorrectos");
+            if (response.ok) {
+                globalThis.location.href = "/characters";
+            } else {
+                usernameSignal.value = "";
+                passwordSignal.value = "";
+                alert("Usuario o contraseña incorrectos");
+            }
         }
     };
 
@@ -32,10 +38,10 @@ const IslaLogin: FunctionalComponent = () => {
         <div class="login">
             <form>
                 <label>Username: </label>
-                <input type="text" placeholder="Username..." value={usernameSignal} onInput={(e) => usernameSignal.value = e.currentTarget.value} required />
+                <input type="text" placeholder="Username..." value={usernameSignal} onInput={(e) => usernameSignal.value = e.currentTarget.value} />
                 <br />
                 <label>Password: </label>
-                <input type="password" placeholder="Password..." value={passwordSignal} onInput={(e) => passwordSignal.value = e.currentTarget.value} required />
+                <input type="password" placeholder="Password..." value={passwordSignal} onInput={(e) => passwordSignal.value = e.currentTarget.value} />
                 <br />
                 <button type="submit" onClick={funcionLogin}>Login</button>
             </form>
