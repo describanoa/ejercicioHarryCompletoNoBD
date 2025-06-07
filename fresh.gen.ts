@@ -3,6 +3,7 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_platform_middleware from "./routes/(platform)/_middleware.ts";
+import * as $_platform_character_character_ from "./routes/(platform)/character/[character].tsx";
 import * as $_platform_characters from "./routes/(platform)/characters.tsx";
 import * as $_platform_favorites from "./routes/(platform)/favorites.tsx";
 import * as $_platform_house_house_ from "./routes/(platform)/house/[house].tsx";
@@ -26,6 +27,8 @@ import type { Manifest } from "$fresh/server.ts";
 const manifest = {
   routes: {
     "./routes/(platform)/_middleware.ts": $_platform_middleware,
+    "./routes/(platform)/character/[character].tsx":
+      $_platform_character_character_,
     "./routes/(platform)/characters.tsx": $_platform_characters,
     "./routes/(platform)/favorites.tsx": $_platform_favorites,
     "./routes/(platform)/house/[house].tsx": $_platform_house_house_,

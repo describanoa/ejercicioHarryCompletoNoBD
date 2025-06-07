@@ -52,15 +52,21 @@ Crea una aplicación web con Deno Fresh que implemente las siguientes funcionali
 
 ## 4. Ruta Dinámica Adicional
 
-Crea una ruta dinámica de prueba:
+1. **Ruta `/house/[houseName]`**
 
-* **`/house/[houseName]`**
+   * Donde `[houseName]` puede ser `gryffindor`, `slytherin`, `ravenclaw` o `hufflepuff`.
+   * Al cargar la página, el servidor realiza un **fetch** a `https://hp-api.onrender.com/api/characters/house/:houseName`.
+   * Recupera los IDs de favoritos desde la cookie `favorites` y marca los personajes correspondientes.
+   * Muestra solo los personajes de esa casa en un layout similar al de `/characters`.
+   * Incluye el botón de “Favorito” que funciona igual (usa los mismos endpoints internos).
 
-  * Donde `[houseName]` puede ser `gryffindor`, `slytherin`, `ravenclaw` o `hufflepuff`.
-  * Al cargar la página, el servidor realiza un **fetch** a `https://hp-api.onrender.com/api/characters/house/:houseName`.
-  * Recupera los IDs de favoritos desde la cookie `favorites` y marca los personajes correspondientes.
-  * Muestra solo los personajes de esa casa en un layout similar al de `/characters`.
-  * Incluye el botón de “Favorito” que funciona igual (usa los mismos endpoints internos).
+2. **Ruta `/character/[character]`**
+
+   * Donde `[character]` es el ID único de un personaje.
+   * Al cargar la página, el servidor realiza un **fetch** a `https://hp-api.onrender.com/api/character/:character`.
+   * Muestra información detallada del personaje, incluyendo:
+     * Nombre, casa, especie, género, fecha de nacimiento, si es mago y el actor que lo interpreta.
+   * Utiliza el componente `ComponenteCharacter` para renderizar la información en un diseño atractivo.
 
 ---
 
@@ -81,8 +87,8 @@ Como extra, puedes crear una ruta:
 
 * **`/profile`**
 
-  * Muestra información básica del usuario (nombre de usuario obtenido de la cookie `username`).
-  * Permite “cerrar sesión” (borrar cookies) y redirigir a `/login`.
+   * Muestra información básica del usuario (nombre de usuario obtenido de la cookie `username`).
+   * Permite “cerrar sesión” (borrar cookies) y redirigir a `/login`.
 
 ---
 
@@ -92,9 +98,10 @@ Como extra, puedes crear una ruta:
 2. **Listado SSR de personajes con botones de favorito** – 2 ptos
 3. **Listado de favoritos propio** – 2 ptos
 4. **Ruta dinámica `/house/[houseName]`** – 1 pto
-5. **Buscador de personajes** – 2 ptos
-6. **Layout global (header + footer)** – 1 pto
-7. **Manejo de favoritos con cookies** – 3 ptos
-8. **Buenas prácticas de Fresh y código limpio** – 1 pto
+5. **Ruta dinámica `/character/[character]`** – 2 ptos
+6. **Buscador de personajes** – 2 ptos
+7. **Layout global (header + footer)** – 1 pto
+8. **Manejo de favoritos con cookies** – 3 ptos
+9. **Buenas prácticas de Fresh y código limpio** – 1 pto
 
-> **Total:** 15 ptos (se califica sobre 10).
+> **Total:** 16 ptos (se califica sobre 10).

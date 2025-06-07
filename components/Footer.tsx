@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div class="footer">
-        <p>© 2025 My Website</p>
+        <p>© 2025 Harry Potter</p>
     </div>
   );
 }

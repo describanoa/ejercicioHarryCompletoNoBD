@@ -11,7 +11,8 @@ const IslaFavoritesCharacters: FunctionalComponent<Props> = (props) => {
     props.data.characters,
   );
 
-  const quitarFavorito = async (c: Character) => {
+  const quitarFavorito = async (c: Character, event: Event) => {
+    event.stopPropagation();
     const response = await fetch("/api/quitarfavorito", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -39,11 +40,11 @@ const IslaFavoritesCharacters: FunctionalComponent<Props> = (props) => {
       </div>
       <div class="characters">
         {characters.map((c) => (
-          <div class="character" key={c.id}>
+          <div class="character" key={c.id} onClick={() => globalThis.location.href = `/character/${c.id}`} >
             <img src={c.image} alt={c.name} />
             <h3>{c.name}</h3>
             <p>House: <a href={`/house/${c.house}`}>{c.house}</a></p>
-            <button type="button" onClick={() => quitarFavorito(c)}>
+            <button type="button" onClick={(e) => quitarFavorito(c, e)}>
               ❌ Quitar de favoritos
             </button>
           </div>

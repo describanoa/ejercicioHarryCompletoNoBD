@@ -11,7 +11,8 @@ const IslaCharacter: FunctionalComponent<Props> = (props) => {
     props.data.characters,
   );
 
-  const añadirFavorito = async (c: Character) => {
+  const añadirFavorito = async (c: Character, event: Event) => {
+    event.stopPropagation(); // Evita que el evento se propague al div
     const response = await fetch("/api/nuevofavorito", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -29,7 +30,8 @@ const IslaCharacter: FunctionalComponent<Props> = (props) => {
     }
   };
 
-  const quitarFavorito = async (c: Character) => {
+  const quitarFavorito = async (c: Character, event: Event) => {
+    event.stopPropagation(); // Evita que el evento se propague al div
     const response = await fetch("/api/quitarfavorito", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -56,18 +58,28 @@ const IslaCharacter: FunctionalComponent<Props> = (props) => {
       </div>
       <div class="characters">
         {characters.map((c) => (
-          <div class="character" key={c.id}>
+          <div
+            class="character"
+            key={c.id}
+            onClick={() => globalThis.location.href = `/character/${c.id}`}
+          >
             <img src={c.image} alt={c.name} />
             <h3>{c.name}</h3>
             <p>House: <a href={`/house/${c.house}`}>{c.house}</a></p>
             {!c.favorite
               ? (
-                <button type="button" onClick={() => añadirFavorito(c)}>
+                <button
+                  type="button"
+                  onClick={(event) => añadirFavorito(c, event)}
+                >
                   ⭐️ Añadir a favoritos
                 </button>
               )
               : (
-                <button type="button" onClick={() => quitarFavorito(c)}>
+                <button
+                  type="button"
+                  onClick={(event) => quitarFavorito(c, event)}
+                >
                   ❌ Quitar de favoritos
                 </button>
               )}
