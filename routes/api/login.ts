@@ -8,7 +8,7 @@ export async function handler(req: Request) {
   // Validar la contraseña (en este caso, debe ser "1234")
   if (password === "1234" && username) {
     const headers = new Headers();
-    headers.append(
+    headers.set(
       "Set-Cookie",
       `username=${username}; Path=/; HttpOnly; Max-Age=604800`, // Cookie válida por 7 días
     );
