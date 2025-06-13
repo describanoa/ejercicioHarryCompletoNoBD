@@ -4,11 +4,11 @@ export function handler(req: Request) {
   }
 
   const headers = new Headers();
-  headers.set(
+  headers.append(
     "Set-Cookie",
     "username=; Path=/; HttpOnly; Max-Age=0", // Elimina la cookie
   );
-  headers.set(
+  headers.append(
     "Set-Cookie",
     "favorites=; Path=/; HttpOnly; Max-Age=0", // Elimina la cookie
   );

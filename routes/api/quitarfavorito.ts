@@ -15,7 +15,7 @@ export async function handler(req: Request) {
   const nuevosFavoritos = favoritos.filter((favId) => favId !== id);
 
   const headers = new Headers();
-  headers.set(
+  headers.append(
     "Set-Cookie",
     `favorites=${nuevosFavoritos.join(",")}; Path=/; HttpOnly; Max-Age=604800`, // Cookie válida por 7 días
   );

@@ -17,7 +17,7 @@ export async function handler(req: Request) {
   }
 
   const headers = new Headers();
-  headers.set(
+  headers.append(
     "Set-Cookie",
     `favorites=${favoritos.join(",")}; Path=/; HttpOnly; Max-Age=604800`, // Cookie válida por 7 días
   );
